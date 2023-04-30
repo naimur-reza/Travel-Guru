@@ -1,13 +1,14 @@
 import React from "react";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/whitelogo.png";
 import { Link } from "react-router-dom";
+import Button from "../Button";
 const Header = () => {
   return (
     <div className="">
       <div className="my-container flex  justify-between    py-5">
         <div className="flex gap-14  items-center">
           <div className="w-[88px]">
-            <img src={logo} className=" " alt="" />
+            <img src={logo} className="" alt="" />
           </div>
 
           <div>
@@ -48,8 +49,8 @@ const Header = () => {
           <Link>Destination</Link>
           <Link>Blog</Link>
           <Link>Contact</Link>
-          <Link className="bg-orange-400  px-3 py-2 rounded-md hover:bg-orange-500 duration-200">
-            Login
+          <Link>
+            <Button>Login</Button>
           </Link>
         </div>
       </div>

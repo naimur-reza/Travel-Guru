@@ -3,6 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper";
+import Button from "../../components/Button";
 const Home = () => {
   const [places, setPlaces] = useState([]);
   useEffect(() => {
@@ -10,10 +11,27 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setPlaces(data));
   }, []);
-  console.log();
+
+  const [contentData, setContentData] = useState(places[0]);
+  const onClickHandler = (id) => {
+    const findElement = places.find((place) => place.id === id);
+    // setContentData(contentData);
+    setContentData(findElement);
+    console.log(contentData);
+  };
+
   return (
     <>
-      <div className=" py-10">
+      <div className=" py-10 flex justify-between">
+        <div className="max-w-lg p-8">
+          <h1 className="text-white text-6xl font-bold pb-4">
+            {contentData?.name}
+          </h1>
+          <p className="text-gray-300 h-28">
+            {contentData?.description.slice(0, 200)}...
+          </p>
+          <Button>Booking</Button>
+        </div>
         <Swiper
           slidesPerView={3}
           spaceBetween={15}
@@ -30,23 +48,28 @@ const Home = () => {
         >
           {places.map((place, index) => {
             return (
-              <SwiperSlide className="overflow-hidden " key={index}>
+              <SwiperSlide className="" key={index}>
                 {({ isActive }) => (
-                  <div
-                    className={
-                      isActive &&
-                      "border-[3px] border-orange-400 rounded-[20px]"
-                    }
-                  >
-                    <img
-                      className="h-96 w-64  rounded-2xl object-center "
-                      src={place?.image}
-                      alt=""
-                    />
-                    <div className="absolute bottom-5 left-5">
-                      <h1 className="text-xl font-semibold text-gray-200">
-                        {place?.name}
-                      </h1>
+                  <div>
+                    {isActive && onClickHandler(place.id)}
+                    <div>
+                      <div
+                        className={`w-[240px] h-96 ${
+                          isActive &&
+                          "border-[3px] border-orange-400 rounded-[20px]"
+                        }`}
+                      >
+                        <img
+                          className="w-full  h-full rounded-2xl object-cover "
+                          src={place?.image}
+                          alt=""
+                        />
+                      </div>
+                      <div className="absolute bottom-5 left-5">
+                        <h1 className="text-xl font-semibold text-gray-200">
+                          {place?.name}
+                        </h1>
+                      </div>
                     </div>
                   </div>
                 )}

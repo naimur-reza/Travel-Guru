@@ -45,11 +45,11 @@ const Header = () => {
           </div>
         </div>
         <div className="space-x-5 text-white font-semibold">
-          <Link>News</Link>
+          <Link to={"/"}>Home</Link>
           <Link>Destination</Link>
           <Link>Blog</Link>
           <Link>Contact</Link>
-          <Link>
+          <Link to={"/login"}>
             <Button>Login</Button>
           </Link>
         </div>

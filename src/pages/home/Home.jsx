@@ -4,25 +4,23 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Autoplay } from "swiper";
 import Button from "../../components/Button";
+import { Link, useLoaderData, useNavigation } from "react-router-dom";
+import Loading from "../Loading";
 const Home = () => {
-  const [places, setPlaces] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:3000/places")
-      .then((res) => res.json())
-      .then((data) => setPlaces(data));
-  }, []);
-
-  const [contentData, setContentData] = useState(places[0]);
+  const fakeData = useLoaderData();
+  const navigate = useNavigation();
+  const [contentData, setContentData] = useState(fakeData[0]);
   const onClickHandler = (id) => {
-    const findElement = places.find((place) => place.id === id);
+    const findElement = fakeData.find((place) => place.id === id);
     // setContentData(contentData);
     setContentData(findElement);
-    console.log(contentData);
   };
-
+  if (navigate.state === "loading") {
+    return <Loading />;
+  }
   return (
     <>
-      <div className=" py-10 flex justify-between">
+      <div className=" lg:py-10  flex flex-col lg:flex-row justify-between">
         <div className="max-w-lg p-8">
           <h1 className="text-white text-6xl font-bold pb-4">
             {contentData?.name}
@@ -30,7 +28,9 @@ const Home = () => {
           <p className="text-gray-300 h-28">
             {contentData?.description.slice(0, 200)}...
           </p>
-          <Button>Booking</Button>
+          <Link to={"/booking"}>
+            <Button>Booking</Button>
+          </Link>
         </div>
         <Swiper
           slidesPerView={3}
@@ -46,7 +46,7 @@ const Home = () => {
           modules={[Autoplay]}
           className="mx-0  max-w-3xl "
         >
-          {places.map((place, index) => {
+          {fakeData.map((place, index) => {
             return (
               <SwiperSlide className="" key={index}>
                 {({ isActive }) => (

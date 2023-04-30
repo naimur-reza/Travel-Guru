@@ -28,7 +28,7 @@ const Home = () => {
           <p className="text-gray-300 h-28">
             {contentData?.description.slice(0, 200)}...
           </p>
-          <Link to={"/booking"}>
+          <Link to={`/booking/${contentData.id}`}>
             <Button>Booking</Button>
           </Link>
         </div>

@@ -1,11 +1,12 @@
 import React from "react";
-import Home from "../pages/home/Home";
+import "./Main.css";
+import background from "../assets/images/Rectangle 1.png";
 import Header from "../components/shared/Header";
 import { Outlet } from "react-router-dom";
-
+("../assets/images/Rectangle 1.png");
 const Main = () => {
   return (
-    <div>
+    <div className="home">
       <Header />
       <Outlet />
     </div>

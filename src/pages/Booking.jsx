@@ -1,5 +1,10 @@
 import React from "react";
-import { useLoaderData, useNavigation, useParams } from "react-router-dom";
+import {
+  Link,
+  useLoaderData,
+  useNavigation,
+  useParams,
+} from "react-router-dom";
 import Loading from "./Loading";
 
 const booking = () => {
@@ -29,11 +34,13 @@ const booking = () => {
           {name}
         </h1>
         {/* date field */}
-        <input
-          className="w-full py-2 my-4 text-gray-800 rounded cursor-pointer  font-semibold hover:bg-orange-500 transition-all bg-orange-400 "
-          type="submit"
-          value="Start Booking"
-        />
+        <Link to={`/hotels/${id}`}>
+          <input
+            className="w-full py-2 my-4 text-gray-800 rounded cursor-pointer  font-semibold hover:bg-orange-500 transition-all bg-orange-400 "
+            type="submit"
+            value="Start Booking"
+          />
+        </Link>
       </div>
     </form>
   );

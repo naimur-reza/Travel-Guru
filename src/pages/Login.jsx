@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
+import { FcGoogle } from "react-icons/fc";
 const Login = () => {
   return (
     <div className="px-5">
@@ -60,7 +61,7 @@ const Login = () => {
         </button>
         <br />
         <button className="lg:w-96  inline-flex items-center gap-3 border px-9 py-2 rounded-full font-semibold text-sm">
-          <FaGoogle
+          <FcGoogle
             className="text-red-400"
             style={{ width: "30px", height: "30px" }}
           />

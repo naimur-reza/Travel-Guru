@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 import { Link, Outlet } from "react-router-dom";
 import Button from "../components/Button";
 import Hamburger from "hamburger-react";
-const LoginLayout = () => {
+const HotelLayout = () => {
   const [show, isShow] = useState(false);
   console.log(show);
   return (
@@ -39,14 +39,15 @@ const LoginLayout = () => {
             <Link>Blog</Link>
             <Link>Contact</Link>
             <Link to={"/auth"}>
-              <Button>Login</Button>
+              <Button>Profile</Button>
             </Link>
           </div>
         </div>
       </div>
+      <hr className="my-container border" />
       <Outlet />
     </>
   );
 };
 
-export default LoginLayout;
+export default HotelLayout;

@@ -6,6 +6,8 @@ import Booking from "../pages/Booking";
 import Loading from "../pages/Loading";
 import LoginLayout from "../layout/LoginLayout";
 import Register from "../pages/Register";
+import HotelLayout from "../layout/HotelLayout";
+import HotelDetails from "../pages/HotelDetails";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +41,19 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register />,
+      },
+    ],
+  },
+  {
+    path: "/hotels/",
+    element: <HotelLayout />,
+
+    children: [
+      {
+        path: ":id",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/hotels/${params.id}`),
+        element: <HotelDetails />,
       },
     ],
   },

@@ -11,10 +11,10 @@ const booking = () => {
     return <Loading />;
   }
   return (
-    <form className="max-w-5xl mx-auto py-10 flex justify-between ">
-      <div className="max-w-lg ">
-        <p className="text-6xl text-white font-bold py-3">{name}</p>
-        <p className="text-gray-300">{description}</p>
+    <form className="max-w-5xl p-5 flex-col lg:flex-row mx-auto py-10 flex justify-between ">
+      <div className="max-w-lg pb-5 lg:pb-0">
+        <p className="lg:text-6xl text-4xl text-white font-bold py-3">{name}</p>
+        <p className="text-gray-300 lg:text-base text-sm">{description}</p>
       </div>
       <div className="bg-white w-96 p-5 rounded-md">
         <p className="text-sm text-gray-400 my-1">Origin</p>

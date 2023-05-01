@@ -38,7 +38,7 @@ const Header = () => {
             <Link>Destination</Link>
             <Link>Blog</Link>
             <Link>Contact</Link>
-            <Link to={"/login"}>
+            <Link to={"/auth"}>
               <Button>Login</Button>
             </Link>
           </div>

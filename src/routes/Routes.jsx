@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Booking from "../pages/Booking";
 import Loading from "../pages/Loading";
 import LoginLayout from "../layout/LoginLayout";
+import Register from "../pages/Register";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -28,12 +29,16 @@ const router = createBrowserRouter([
     ],
   },
   {
-    path: "/login",
+    path: "/auth",
     element: <LoginLayout />,
     children: [
       {
-        path: "/login",
+        path: "/auth",
         element: <Login />,
+      },
+      {
+        path: "register",
+        element: <Register />,
       },
     ],
   },

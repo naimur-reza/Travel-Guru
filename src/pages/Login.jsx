@@ -37,7 +37,10 @@ const Login = () => {
         </form>
         <p className="text-center py-5 font-semibold text-sm ">
           Don't have and account?{" "}
-          <Link className="  text-orange-500 text-sm  font-semibold underline">
+          <Link
+            to={"./register"}
+            className="  text-orange-500 text-sm  font-semibold underline"
+          >
             Create an account
           </Link>
         </p>
@@ -48,7 +51,7 @@ const Login = () => {
         <hr className="min-w-[150px] ms-2 block  border" />
       </div>
       <div className="space-y-3 text-center">
-        <button className="inline-flex items-center gap-3 border px-9 py-2 rounded-full font-semibold text-sm">
+        <button className="lg:w-96 inline-flex items-center gap-3 border px-9 py-2 rounded-full font-semibold text-sm">
           <FaFacebook
             className="text-sky-500"
             style={{ width: "30px", height: "30px" }}
@@ -56,12 +59,12 @@ const Login = () => {
           Continue With Facebook
         </button>
         <br />
-        <button className="inline-flex items-center gap-3 border px-9 py-2 rounded-full font-semibold text-sm">
+        <button className="lg:w-96  inline-flex items-center gap-3 border px-9 py-2 rounded-full font-semibold text-sm">
           <FaGoogle
-            className="text-yellow-400"
+            className="text-red-400"
             style={{ width: "30px", height: "30px" }}
           />
-          Continue With Facebook
+          Continue With Google
         </button>
       </div>
     </div>

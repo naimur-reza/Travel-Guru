@@ -7,6 +7,7 @@ import { Autoplay, Keyboard, Navigation, Pagination } from "swiper";
 import Button from "../../components/Button";
 import { Link, useLoaderData, useNavigation } from "react-router-dom";
 import Loading from "../Loading";
+import { FaArrowRight } from "react-icons/fa";
 const Home = () => {
   const fakeData = useLoaderData();
   const navigate = useNavigation();
@@ -26,11 +27,13 @@ const Home = () => {
           <h1 className="text-white lg:text-6xl text-4xl font-bold pb-4">
             {contentData?.name}
           </h1>
-          <p className="text-gray-300 h-28">
+          <p className="text-gray-300 lg:h-28 py-4">
             {contentData?.description.slice(0, 200)}...
           </p>
-          <Link to={`/booking/${contentData.id}`}>
-            <Button>Booking</Button>
+          <Link className="font-semibold " to={`/booking/${contentData.id}`}>
+            <Button>
+              Booking <FaArrowRight />{" "}
+            </Button>
           </Link>
         </div>
         <Swiper
@@ -53,13 +56,13 @@ const Home = () => {
         >
           {fakeData.map((place, index) => {
             return (
-              <SwiperSlide className="" key={index}>
+              <SwiperSlide className="p-2" key={index}>
                 {({ isActive }) => (
                   <div>
                     {isActive && onClickHandler(place.id)}
                     <div>
                       <div
-                        className={`w-[240px] h-96 ${
+                        className={`w-32 lg:w-[240px] h-60 lg:h-96 ${
                           isActive &&
                           "border-[3px] border-orange-400 duration-200 border-opacity-100 transition rounded-[20px]"
                         }`}
@@ -71,7 +74,7 @@ const Home = () => {
                         />
                       </div>
                       <div className="absolute bottom-5 left-5">
-                        <h1 className="text-xl font-semibold text-gray-200">
+                        <h1 className="lg:text-xl text-sm font-semibold text-gray-200">
                           {place?.name}
                         </h1>
                       </div>

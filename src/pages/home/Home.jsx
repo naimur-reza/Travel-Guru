@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay } from "swiper";
+
+import { Autoplay, Keyboard, Navigation, Pagination } from "swiper";
 import Button from "../../components/Button";
 import { Link, useLoaderData, useNavigation } from "react-router-dom";
 import Loading from "../Loading";
@@ -37,13 +38,17 @@ const Home = () => {
           spaceBetween={15}
           loop={true}
           autoplay={{
-            delay: 3500,
+            delay: 3800,
             disableOnInteraction: false,
           }}
           pagination={{
             clickable: true,
           }}
-          modules={[Autoplay]}
+          navigation={true}
+          keyboard={{
+            enabled: true,
+          }}
+          modules={[Autoplay, Pagination, Navigation, Keyboard]}
           className="mx-0  max-w-3xl "
         >
           {fakeData.map((place, index) => {
@@ -56,7 +61,7 @@ const Home = () => {
                       <div
                         className={`w-[240px] h-96 ${
                           isActive &&
-                          "border-[3px] border-orange-400 rounded-[20px]"
+                          "border-[3px] border-orange-400 duration-200 border-opacity-100 transition rounded-[20px]"
                         }`}
                       >
                         <img

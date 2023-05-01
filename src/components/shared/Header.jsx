@@ -1,14 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../../assets/whitelogo.png";
 import { Link } from "react-router-dom";
 import Button from "../Button";
+import Hamburger from "hamburger-react";
 const Header = () => {
+  const [show, isShow] = useState(false);
+  console.log(show);
   return (
     <div className="">
-      <div className="my-container flex  justify-between    py-5">
-        <div className="flex gap-14  items-center">
+      <div className="my-container flex  justify-between    py-5 flex-col lg:flex-row">
+        <div className="flex lg:gap-14 gap-5 justify-center  items-center">
           <div className="w-[88px]">
-            <img src={logo} className="" alt="" />
+            <img src={logo} className="mb-2" alt="" />
           </div>
 
           <div>
@@ -16,7 +19,7 @@ const Header = () => {
               <div className="relative  flex w-full flex-wrap items-stretch ">
                 <input
                   type="search"
-                  className="relative block w-[200px]  flex-auto rounded border border-solid border-neutral-200 bg-white bg-opacity-10 bg-clip-padding px-3 py-[0.25rem] text-sm font-normal leading-[1.6] text-neutral-200 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-300  focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-400 dark:text-white dark:placeholder:text-neutral-200 dark:focus:border-primary"
+                  className="relative block lg:w-[200px] w-[180px]  flex-auto rounded border border-solid border-neutral-200 bg-white bg-opacity-10 bg-clip-padding px-3 py-[0.25rem] text-sm font-normal leading-[1.6] text-neutral-200 outline-none transition duration-200 ease-in-out focus:z-[3] focus:border-primary focus:text-neutral-300  focus:shadow-[inset_0_0_0_1px_rgb(59,113,202)] focus:outline-none dark:border-neutral-400 dark:text-white dark:placeholder:text-neutral-200 dark:focus:border-primary"
                   placeholder="Search your destination..."
                   aria-label="Search"
                   aria-describedby="button-addon2"
@@ -40,11 +43,25 @@ const Header = () => {
                     />
                   </svg>
                 </span>
+                <div className="lg:hidden">
+                  <Hamburger
+                    toggled={show}
+                    toggle={isShow}
+                    color="#ffff"
+                    size={33}
+                  />
+                </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="space-x-5 text-white font-semibold">
+        <div
+          className={`lg:space-x-5 space-y-4 lg:static absolute p-5 w-1/2 lg:w-auto rounded-lg bg-opacity-80 top-0 ${
+            show && "left-0"
+          } lg:space-y-0 bg-black lg:bg-opacity-0 ${
+            !show && "-left-64"
+          } text-white font-semibold duration-400 transition-all flex flex-col lg:block`}
+        >
           <Link to={"/"}>Home</Link>
           <Link>Destination</Link>
           <Link>Blog</Link>

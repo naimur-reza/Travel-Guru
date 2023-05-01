@@ -4,7 +4,7 @@ import Main from "../layout/Main";
 import Login from "../pages/Login";
 import Booking from "../pages/Booking";
 import Loading from "../pages/Loading";
-
+import LoginLayout from "../layout/LoginLayout";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -14,10 +14,6 @@ const router = createBrowserRouter([
         path: "/",
         loader: ({ params }) => fetch(`http://localhost:3000/places`),
         element: <Home />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
       },
       {
         path: "/booking/:id",
@@ -31,14 +27,16 @@ const router = createBrowserRouter([
       },
     ],
   },
-  // {
-  //   path: "/about",
-  //   component: About,
-  // },
-  // {
-  //   path: "/contact",
-  //   component: Contact,
-  // },
+  {
+    path: "/login",
+    element: <LoginLayout />,
+    children: [
+      {
+        path: "/login",
+        element: <Login />,
+      },
+    ],
+  },
 ]);
 
 export default router;

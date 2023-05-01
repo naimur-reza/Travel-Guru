@@ -23,7 +23,7 @@ const Home = () => {
     <>
       <div className=" lg:py-10  flex flex-col lg:flex-row justify-between">
         <div className="max-w-lg p-8">
-          <h1 className="text-white text-6xl font-bold pb-4">
+          <h1 className="text-white lg:text-6xl text-4xl font-bold pb-4">
             {contentData?.name}
           </h1>
           <p className="text-gray-300 h-28">

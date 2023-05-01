@@ -1,18 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, Navigate } from "react-router-dom";
 import { FaFacebook, FaGoogle } from "react-icons/fa";
 import { FcGoogle } from "react-icons/fc";
+import { AuthContext } from "../context/AuthProvider/AuthProvider";
+import { toast } from "react-hot-toast";
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { logIn, signInGoogle } = useContext(AuthContext);
+  const handleLogin = (event) => {
+    event.preventDefault();
+    logIn(email, password)
+      .then((res) => {
+        console.log(res);
+        Navigate("/");
+      })
+      .catch((err) => {
+        toast.error(err.message);
+      });
+  };
   return (
     <div className="px-5">
       <div className="border max-w-xl mx-auto  p-10 ">
-        <form className="flex flex-col  gap-6">
+        <form onSubmit={handleLogin} className="flex flex-col  gap-6">
           <p className="text-lg font-bold">Login</p>
           <input
             required
             className="border-b-2 p-2 outline-none text-gray-500 font-semibold tracking-wide"
             type="email"
             name="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="Username or email"
           />
           <input
@@ -20,6 +38,8 @@ const Login = () => {
             className="border-b-2 p-2 outline-none text-gray-500 font-semibold tracking-wide"
             type="password"
             name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             placeholder="Password"
           />
           <div className="flex items-center justify-between gap-2 text-gray-400 ">
@@ -60,7 +80,10 @@ const Login = () => {
           Continue With Facebook
         </button>
         <br />
-        <button className="lg:w-96  inline-flex items-center gap-3 border px-9 py-2 rounded-full font-semibold text-sm">
+        <button
+          onClick={signInGoogle}
+          className="lg:w-96  inline-flex items-center gap-3 border px-9 py-2 rounded-full font-semibold text-sm"
+        >
           <FcGoogle
             className="text-red-400"
             style={{ width: "30px", height: "30px" }}

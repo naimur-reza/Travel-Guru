@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Link,
   useLoaderData,
@@ -6,8 +6,11 @@ import {
   useParams,
 } from "react-router-dom";
 import Loading from "./Loading";
+import { DateRangePicker } from "dates-picker";
+import { AuthContext } from "../context/AuthProvider/AuthProvider";
 
 const booking = () => {
+  const { loading } = useContext(AuthContext);
   const { id } = useParams();
   const destination = useLoaderData();
   const navigate = useNavigation();
@@ -15,6 +18,7 @@ const booking = () => {
   if (navigate.state === "loading") {
     return <Loading />;
   }
+
   return (
     <form className="max-w-5xl p-5 flex-col lg:flex-row mx-auto py-10 flex justify-between ">
       <div className="max-w-lg pb-5 lg:pb-0">
@@ -34,6 +38,10 @@ const booking = () => {
           {name}
         </h1>
         {/* date field */}
+
+        <div>
+          <DateRangePicker selectAllButton="enabled" pickMethod="ranges" />
+        </div>
         <Link to={`/hotels/${id}`}>
           <input
             className="w-full py-2 my-4 text-gray-800 rounded cursor-pointer  font-semibold hover:bg-orange-500 transition-all bg-orange-400 "

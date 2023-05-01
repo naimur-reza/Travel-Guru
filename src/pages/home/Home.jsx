@@ -27,7 +27,7 @@ const Home = () => {
           <h1 className="text-white lg:text-6xl text-4xl font-bold pb-4">
             {contentData?.name}
           </h1>
-          <p className="text-gray-300 lg:h-28 py-4">
+          <p className="text-gray-300 lg:h-28 py-4 lg:mb-4 ">
             {contentData?.description.slice(0, 200)}...
           </p>
           <Link className="font-semibold " to={`/booking/${contentData.id}`}>
@@ -62,9 +62,9 @@ const Home = () => {
                     {isActive && onClickHandler(place.id)}
                     <div>
                       <div
-                        className={`w-32 lg:w-[240px] h-60 lg:h-96 ${
+                        className={`w-36 lg:w-[240px] h-60 lg:h-96 ${
                           isActive &&
-                          "border-[3px] border-orange-400 duration-200 border-opacity-100 transition rounded-[20px]"
+                          "border-[3px] border-orange-400 duration-700 border-opacity-100 transition rounded-[20px]"
                         }`}
                       >
                         <img

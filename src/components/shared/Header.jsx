@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../../assets/whitelogo.png";
 import { Link } from "react-router-dom";
 import Button from "../Button";
 import Hamburger from "hamburger-react";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 const Header = () => {
   const [show, isShow] = useState(false);
-  console.log(show);
+  const { user, logOut } = useContext(AuthContext);
+  console.log(user);
   return (
     <div className="">
       <div className="my-container flex  justify-between    py-5 flex-col lg:flex-row">
@@ -66,9 +68,15 @@ const Header = () => {
           <Link>Destination</Link>
           <Link>Blog</Link>
           <Link>Contact</Link>
-          <Link to={"/auth"}>
-            <Button>Login</Button>
-          </Link>
+          {user ? (
+            <Link onClick={logOut}>
+              <Button>Logout</Button>
+            </Link>
+          ) : (
+            <Link to={"/auth"}>
+              <Button>Login</Button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

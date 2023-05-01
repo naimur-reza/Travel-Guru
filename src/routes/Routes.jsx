@@ -8,6 +8,7 @@ import LoginLayout from "../layout/LoginLayout";
 import Register from "../pages/Register";
 import HotelLayout from "../layout/HotelLayout";
 import HotelDetails from "../pages/HotelDetails";
+import PrivateRoute from "./PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -46,7 +47,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/hotels/",
-    element: <HotelLayout />,
+    element: (
+      <PrivateRoute>
+        <HotelLayout />
+      </PrivateRoute>
+    ),
 
     children: [
       {

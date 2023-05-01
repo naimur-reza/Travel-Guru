@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import logo from "../assets/logo.png";
 import { Link, Outlet } from "react-router-dom";
 import Button from "../components/Button";
 import Hamburger from "hamburger-react";
+import { AuthContext } from "../context/AuthProvider/AuthProvider";
 const LoginLayout = () => {
+  const { user, logOut } = useContext(AuthContext);
   const [show, isShow] = useState(false);
   console.log(show);
   return (
@@ -38,9 +40,19 @@ const LoginLayout = () => {
             <Link>Destination</Link>
             <Link>Blog</Link>
             <Link>Contact</Link>
-            <Link to={"/auth"}>
-              <Button>Login</Button>
-            </Link>
+            {user ? (
+              <>
+                <Link onClick={logOut}>
+                  <Button>Logout</Button>
+                </Link>
+              </>
+            ) : (
+              <>
+                <Link to={"/auth"}>
+                  <Button>Login</Button>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </div>

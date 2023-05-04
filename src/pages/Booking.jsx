@@ -6,7 +6,9 @@ import {
   useParams,
 } from "react-router-dom";
 import Loading from "./Loading";
-import { DateRangePicker } from "dates-picker";
+import { RangeDatePicker } from "react-google-flight-datepicker";
+import "react-google-flight-datepicker/dist/main.css";
+
 import { AuthContext } from "../context/AuthProvider/AuthProvider";
 
 const booking = () => {
@@ -20,7 +22,7 @@ const booking = () => {
   }
 
   return (
-    <form className="max-w-5xl p-5 flex-col lg:flex-row mx-auto py-10 flex justify-between ">
+    <form className="max-w-5xl p-5 flex-col lg:flex-row-reverse mx-auto py-10 flex justify-between ">
       <div className="max-w-lg pb-5 lg:pb-0">
         <p className="lg:text-6xl text-4xl text-white font-bold py-3">{name}</p>
         <p className="text-gray-300 lg:text-base text-sm">{description}</p>
@@ -39,8 +41,13 @@ const booking = () => {
         </h1>
         {/* date field */}
 
-        <div>
-          <DateRangePicker selectAllButton="enabled" pickMethod="ranges" />
+        <div className="w-auto py-5">
+          <p className="text-sm max-w-md text-gray-400 pb-2">Pick Date</p>
+          <RangeDatePicker
+            className={"w-full"}
+            startDate={new Date(2020, 0, 15)}
+            endDate={new Date(2020, 1, 1)}
+          />
         </div>
         <Link to={`/hotels/${id}`}>
           <input

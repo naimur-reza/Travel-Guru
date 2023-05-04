@@ -9,6 +9,12 @@ const HotelDetails = () => {
 
   const { title, rooms } = hotels;
   const position = [51.505, -0.09];
+  const handleBooking = (e) => {
+    // e.target.value.disabled = true;
+    console.log();
+    e.target.disabled = true;
+    // console.log(e.target.disabled);
+  };
   return (
     <div className="flex my-container gap-3 p-5 py-10 justify-between flex-col lg:flex-row">
       <div>
@@ -17,16 +23,16 @@ const HotelDetails = () => {
           {rooms.map((room, index) => {
             return (
               <div
-                className="flex gap-3  flex-col lg:flex-row   mt-3  p-5 mb-3 shadow-lg rounded-md"
+                className="flex gap-3 w-[700px] flex-col lg:flex-row   mt-3  p-5 mb-3 shadow-lg rounded-md"
                 key={index}
               >
                 <img className="lg:w-80 w-full " src={room?.sinleroom} alt="" />
-                <div className="flex flex-col justify-between">
+                <div className=" flex-col justify-between flex">
                   <div className=" space-y-3 ">
                     <p className="font-semibold text-lg">{room?.title1}</p>
                     <p className="text-gray-400">{room?.description1}</p>
                     <div className="space-x-3">
-                      <span className=" inline-flex items-center gap-2 fonsemi">
+                      <span className=" inline-flex items-center gap-2 ">
                         <FaStar className="text-yellow-400 " />
                         <span className="font-semibold">{room?.reviw}(10)</span>
                       </span>
@@ -41,8 +47,8 @@ const HotelDetails = () => {
                     </div>
                   </div>
                   <button
-                    onClick={() => toast.success("Successfully Booked")}
-                    className="mt-3 bg-sky-400 px-4 py-2 rounded-full font-semibold text-white hover:bg-sky-500 transition-all"
+                    onClick={handleBooking}
+                    className=" block  bg-sky-400 px-4 py-2 rounded-full font-semibold text-white hover:bg-sky-500 transition-all"
                   >
                     Book Now
                   </button>

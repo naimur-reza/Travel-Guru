@@ -16,14 +16,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        loader: ({ params }) => fetch(`http://localhost:3000/places`),
+        loader: ({ params }) =>
+          fetch(`https://myapp-naimur-reza.vercel.app/places`),
         element: <Home />,
       },
       {
         path: "/booking/:id",
         element: <Booking />,
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/places/${params.id}`),
+          fetch(`https://myapp-naimur-reza.vercel.app/places/${params.id}`),
       },
       {
         path: "/loading",
@@ -57,7 +58,7 @@ const router = createBrowserRouter([
       {
         path: ":id",
         loader: ({ params }) =>
-          fetch(`http://localhost:3000/hotels/${params.id}`),
+          fetch(`https://myapp-naimur-reza.vercel.app/hotels/${params.id}`),
         element: <HotelDetails />,
       },
     ],

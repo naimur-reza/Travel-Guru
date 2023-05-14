@@ -7,7 +7,7 @@ const HotelLayout = () => {
   const [show, isShow] = useState(false);
   console.log(show);
   return (
-    <>
+    <div className="bg-gray-50 pb-7">
       <div className="">
         <div className="my-container flex  justify-between    py-5 flex-col lg:flex-row">
           <div className="flex lg:gap-14 gap-5 justify-between px-5  items-center">
@@ -32,12 +32,12 @@ const HotelLayout = () => {
               show && "left-0"
             } lg:space-y-0 bg-black lg:bg-opacity-0 ${
               !show && "-left-64"
-            }  font-semibold duration-400 lg:text-black text-white  transition-all flex flex-col lg:block`}
-          >
+            }  font-semibold duration-400 lg:text-black text-white  transition-all flex flex-col lg:block`}>
             <Link to={"/"}>Home</Link>
-            <Link>Destination</Link>
-            <Link>Blog</Link>
-            <Link>Contact</Link>
+            <Link to={"/destination"}>Destination</Link>
+            <Link to={"./myBookings"}>My Bookings</Link>
+            <Link to={"blogs"}>Blog</Link>
+            <Link to={"/contact"}>Contact</Link>
             <Link to={"/auth"}>
               <Button>Profile</Button>
             </Link>
@@ -46,7 +46,7 @@ const HotelLayout = () => {
       </div>
       <hr className="my-container border" />
       <Outlet />
-    </>
+    </div>
   );
 };
 

@@ -27,11 +27,6 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://myapp-naimur-reza.vercel.app/places/${params.id}`),
       },
-      {
-        path: "/myBookings",
-        loader: ({ params }) => fetch(`http://localhost:5000/bookings`),
-        element: <MyBookings />,
-      },
     ],
   },
   {
@@ -62,6 +57,15 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://myapp-naimur-reza.vercel.app/hotels/${params.id}`),
         element: <HotelDetails />,
+      },
+      {
+        path: "myBookings",
+        loader: () => fetch(`https://myapp-beige-eight.vercel.app/bookings`),
+        element: (
+          <PrivateRoute>
+            <MyBookings />
+          </PrivateRoute>
+        ),
       },
     ],
   },

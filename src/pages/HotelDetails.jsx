@@ -10,12 +10,12 @@ const HotelDetails = () => {
   const { title, rooms } = hotels;
   const position = [51.505, -0.09];
   const handleBooking = (room) => {
-    fetch("http://localhost:5000/bookings", {
+    fetch("https://myapp-beige-eight.vercel.app/bookings", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
-      body: JSON.stringify(room),
+      body: JSON.stringify({ title, room }),
     })
       .then((res) => res.json())
       .then((data) => {

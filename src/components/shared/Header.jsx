@@ -13,7 +13,9 @@ const Header = () => {
       <div className="my-container flex  justify-between    py-5 flex-col lg:flex-row">
         <div className="flex lg:gap-14 gap-5 justify-center  items-center">
           <div className="w-[88px]">
-            <img src={logo} className="mb-2" alt="" />
+            <Link to={"/"}>
+              <img src={logo} className="mb-2" alt="" />
+            </Link>
           </div>
 
           <div>
@@ -63,7 +65,7 @@ const Header = () => {
           } text-white font-semibold duration-200 transition-all flex flex-col lg:block`}>
           <Link to={"/"}>Home</Link>
           <Link>Destination</Link>
-          <Link to={"/myBookings"}>My Bookings</Link>
+          <Link to={"hotels/myBookings"}>My Bookings</Link>
           <Link>Blog</Link>
           <Link>Contact</Link>
           {user ? (

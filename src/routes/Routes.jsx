@@ -9,6 +9,7 @@ import Register from "../pages/Register";
 import HotelLayout from "../layout/HotelLayout";
 import HotelDetails from "../pages/HotelDetails";
 import PrivateRoute from "./PrivateRoute";
+import MyBookings from "../pages/MyBookings";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,8 +28,9 @@ const router = createBrowserRouter([
           fetch(`https://myapp-naimur-reza.vercel.app/places/${params.id}`),
       },
       {
-        path: "/loading",
-        element: <Loading />,
+        path: "/myBookings",
+        loader: ({ params }) => fetch(`http://localhost:5000/bookings`),
+        element: <MyBookings />,
       },
     ],
   },

@@ -12,7 +12,6 @@ import "react-google-flight-datepicker/dist/main.css";
 import { AuthContext } from "../context/AuthProvider/AuthProvider";
 
 const booking = () => {
-  const { loading } = useContext(AuthContext);
   const { id } = useParams();
   const destination = useLoaderData();
   const navigate = useNavigation();

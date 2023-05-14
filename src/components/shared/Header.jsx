@@ -63,6 +63,7 @@ const Header = () => {
           } text-white font-semibold duration-200 transition-all flex flex-col lg:block`}>
           <Link to={"/"}>Home</Link>
           <Link>Destination</Link>
+          <Link to={"/myBookings"}>My Bookings</Link>
           <Link>Blog</Link>
           <Link>Contact</Link>
           {user ? (

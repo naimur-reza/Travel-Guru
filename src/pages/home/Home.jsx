@@ -52,8 +52,7 @@ const Home = () => {
             enabled: true,
           }}
           modules={[Autoplay, Pagination, Navigation, Keyboard]}
-          className="mx-0  max-w-3xl "
-        >
+          className="mx-0  max-w-3xl ">
           {fakeData.map((place, index) => {
             return (
               <SwiperSlide className="p-2" key={index}>
@@ -62,11 +61,10 @@ const Home = () => {
                     {isActive && onClickHandler(place.id)}
                     <div>
                       <div
-                        className={`w-36 lg:w-[240px] h-60 lg:h-96 ${
+                        className={`w-32 lg:w-[240px] h-60 lg:h-96 ${
                           isActive &&
                           "border-[3px] border-orange-400 duration-700 border-opacity-100 transition rounded-[20px]"
-                        }`}
-                      >
+                        }`}>
                         <img
                           className="w-full  h-full rounded-2xl object-cover "
                           src={place?.image}

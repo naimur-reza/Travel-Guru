@@ -27,11 +27,12 @@ const booking = () => {
         <p className="lg:text-6xl text-4xl text-white font-bold py-3">{name}</p>
         <p className="text-gray-300 lg:text-base text-sm">{description}</p>
       </div>
-      <div className="bg-white w-96 p-5 rounded-md">
+      <div className="bg-white lg:w-96 p-5 rounded-md">
         <p className="text-sm text-gray-400 my-1">Origin</p>
         <input
           type="text"
           required
+          value={"Dhaka"}
           placeholder="enter origin"
           className="text-sm bg-gray-100  outline-gray-400  block font-semibold  text-gray-700  my-1 p-2 rounded w-full border"
         />

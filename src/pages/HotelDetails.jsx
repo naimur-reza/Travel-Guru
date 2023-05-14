@@ -10,9 +10,10 @@ const HotelDetails = () => {
   const { title, rooms } = hotels;
   const position = [51.505, -0.09];
   const handleBooking = (e) => {
+    toast.error("Server down. Get Out");
     // e.target.value.disabled = true;
     console.log();
-    e.target.disabled = true;
+    // e.target.disabled = true;
     // console.log(e.target.disabled);
   };
   return (
@@ -23,7 +24,7 @@ const HotelDetails = () => {
           {rooms.map((room, index) => {
             return (
               <div
-                className="flex gap-3 w-[700px] flex-col lg:flex-row   mt-3  p-5 mb-3 shadow-lg rounded-md"
+                className="flex gap-3 lg:w-[700px] flex-col lg:flex-row   mt-3  p-5 mb-3 shadow-lg rounded-md"
                 key={index}
               >
                 <img className="lg:w-80 w-full " src={room?.sinleroom} alt="" />

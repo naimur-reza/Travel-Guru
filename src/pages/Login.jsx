@@ -44,10 +44,11 @@ const Login = () => {
           />
           <div className="flex items-center justify-between gap-2 text-gray-400 ">
             <div className="flex items-center gap-1">
-              <input type="checkbox" name="" id="" /> <span>Remember Me</span>
+              <input type="checkbox" name="" id="" />{" "}
+              <span className="text-xs">Remember Me</span>
             </div>
             <div className="flex items-center gap-1 text-orange-400 font-semibold underline">
-              <span>Forget Password?</span>
+              <span className="text-xs">Forget Password?</span>
             </div>
           </div>
           <input
@@ -60,8 +61,7 @@ const Login = () => {
           Don't have and account?{" "}
           <Link
             to={"./register"}
-            className="  text-orange-500 text-sm  font-semibold underline"
-          >
+            className="  text-orange-500 text-sm  font-semibold underline">
             Create an account
           </Link>
         </p>
@@ -82,8 +82,7 @@ const Login = () => {
         <br />
         <button
           onClick={signInGoogle}
-          className="lg:w-96  inline-flex items-center gap-3 border px-9 py-2 rounded-full font-semibold text-sm"
-        >
+          className="lg:w-96  inline-flex items-center gap-3 border px-9 py-2 rounded-full font-semibold text-sm">
           <FcGoogle
             className="text-red-400"
             style={{ width: "30px", height: "30px" }}
